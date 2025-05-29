@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Funções Matemáticas</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="calculadora">
+    <h2>Calculadora de Funções Matemáticas</h2>
+    <select id="tipoCalculo">
+      <option value="linear">Função de 1º Grau</option>
+      <option value="exponencial">Função Exponencial</option>
+      <option value="quadratica">Função Quadrática</option>
+      <option value="limite">Cálculo de Limite</option>
+      <option value="derivada">Cálculo de Derivada</option>
+      <option value="integral">Cálculo de Integral</option>
+    </select>
+
+    <!-- Seção Cálculo de Derivada -->
+    <div id="secaoDerivada" class="secao">
+      <h3>Cálculo de Derivada</h3>
+      <p class="info">Digite a função e a variável em relação à qual derivar.</p>
+      <input type="text" id="expressaoDerivada" placeholder="Ex: x^2 + 2*x">
+      <input type="text" id="variavelDerivada" placeholder="Variável (padrão: x)">
+      <button id="btnDerivada">Calcular Derivada</button>
+      <div class="resultado" id="resultadoDerivada"></div>
+    </div>
+
+    <!-- Seção Cálculo de Integral -->
+    <div id="secaoIntegral" class="secao">
+      <h3>Cálculo de Integral</h3>
+      <p class="info">Digite a função e a variável de integração (apenas simbólica básica, verificar limitações).</p>
+      <input type="text" id="expressaoIntegral" placeholder="Ex: x^2">
+      <input type="text" id="variavelIntegral" placeholder="Variável (padrão: x)">
+      <button id="btnIntegral">Calcular Integral</button>
+      <div class="resultado" id="resultadoIntegral"></div>
+    </div>
+
+    <!-- Seção Função Linear -->
+    <div id="secaoLinear" class="secao ativa">
+      <h3>Função de 1º Grau</h3>
+      <p class="info">Formato: f(x) = ax + b</p>
+      <input type="number" id="a1" placeholder="Coeficiente a (angular)">
+      <input type="number" id="b1" placeholder="Coeficiente b (linear)">
+      <button id="btnLinear">Calcular</button>
+      <div class="resultado" id="funcaoLinearExibida"></div>
+      <div class="resultado" id="resultadoLinear"></div>
+      <canvas id="graficoLinear"></canvas>
+    </div>
+
+    <!-- Seção Função Exponencial -->
+    <div id="secaoExponencial" class="secao">
+      <h3>Função Exponencial</h3>
+      <p class="info">Formato: f(x) = a*b^x + c ou f(x) = e^(x)</p>
+      <input type="text" id="expressaoExponencial" placeholder="Ex: 2^x + 1 ou e^(x-1)">
+      <input type="number" id="valorXExponencial" placeholder="Valor de x (opcional)" step="any">
+      <button id="btnExponencial">Calcular</button>
+      <div class="resultado" id="funcaoExponencialExibida"></div>
+      <div class="resultado" id="resultadoExponencial"></div>
+      <canvas id="graficoExponencial"></canvas>
+    </div>
+
+    <!-- Seção Função Quadrática -->
+    <div id="secaoQuadratica" class="secao">
+      <h3>Função Quadrática</h3>
+      <p class="info">Formato: f(x) = ax² + bx + c</p>
+      <input type="number" id="aQuad" placeholder="Coeficiente a">
+      <input type="number" id="bQuad" placeholder="Coeficiente b">
+      <input type="number" id="cQuad" placeholder="Coeficiente c">
+      <button id="btnQuadratica">Calcular</button>
+      <div class="resultado" id="funcaoQuadExibida"></div>
+      <div class="resultado" id="resultadoQuad"></div>
+      <canvas id="graficoQuad"></canvas>
+    </div>
+
+    <!-- Seção Limites -->
+    <div id="secaoLimite" class="secao">
+      <h3>Cálculo de Limite</h3>
+      <p class="info">Formato: (x^2 - 1)/(x - 1) ou 2^x + 1</p>
+      <input type="text" id="expressaoLimite" placeholder="Digite a função">
+      
+      <div class="input-group">
+        <input type="text" id="valorLimite" placeholder="x → ?">
+        <select id="opcoesInfinito">
+          <option value="">∞ opções</option>
+          <option value="Infinity">∞</option>
+          <option value="-Infinity">-∞</option>
+        </select>
+      </div>
+      
+      <button id="btnLimite">Calcular Limite</button>
+      <div class="resultado" id="resultadoLimite"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+  <script src="js/funcoes.js"></script>
+</body>
+</html>
